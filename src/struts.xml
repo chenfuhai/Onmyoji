@@ -4,8 +4,10 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-
-
+<!-- 服务器指定一个临时的路径，这里使用了绝对路径，大家根据自己的Tomcat路径自行设置，否则会上传失败 -->
+	<constant name="struts.multipart.saveDir" value="D:\pro\apache-tomcat-8.5.15/temp"/>
+	<constant name="struts.multipart.maxSize" value="30000000"></constant>
+	
     <package name="default" namespace="/" extends="struts-default">
     
      <action name="update" class="action.ShikigamiAction" method="updateMessage">
@@ -26,6 +28,20 @@
   		</action>
   		
   		<action name="test" class="action.Test"></action>
+  		<!-- 文件上传的action -->
+  		
+  		<action name="test2_*" class="action.Test2" method="{1}">
+  		<!-- 拦截器 -->
+  			<interceptor-ref name="fileUpload">
+  				<param name="maximumSize">524288000</param>
+  			</interceptor-ref>
+  			<interceptor-ref name="defaultStack"/>
+  			
+  			<param name="savePath">/upload</param>
+  			
+  		
+  		
+  		</action>
     </package>
 
     
