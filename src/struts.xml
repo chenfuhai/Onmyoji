@@ -25,6 +25,7 @@
   		<action name="analysisAll" class="action.ShikigamiAction" method="analysisAll">
   		</action>
   		
+  		<action name="test" class="action.Test"></action>
     </package>
 
     
