@@ -42,6 +42,10 @@
   		
   		
   		</action>
+  		
+  		<action name="test" class="action.Test">
+  		
+  		</action>
     </package>
 
     
